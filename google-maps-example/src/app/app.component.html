@@ -1,0 +1,45 @@
+<agm-map 
+  [latitude]="latitude"
+  [longitude]="longitude"
+  (mapClick)="onChoseLocation($event)"
+  (mapReady)="onMapReady($event)"
+  [mapTypeControl]="true"
+  disableDoubleClickZoom="true"
+  mapTypeId='hybrid'
+  [zoom]=13 *ngIf="flag">
+</agm-map>
+
+
+<!--<button class="btn btn-outline-danger" style="margin-left: 50%; margin-right: 5px;" (click)="deletePolygon()">Izbriši</button>
+<button class="btn btn-outline-success" (click)="saveData()">Sačuvaj podatke</button>
+-->
+<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Molimo Vas da popunite formu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Naziv polja:</label>
+            <input type="text" name="naziv" [(ngModel)]="field.name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unesite naziv polja..">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Posejano:</label>
+            <input type="text" name="zitarica" [(ngModel)]="field.cereals" class="form-control" id="exampleInputEmail1" placeholder="Unesite vrstu zitarice...">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="dropField()" data-dismiss="modal">Odustani</button>
+        <button type="button" class="btn btn-outline-primary" (click)="addField()" data-dismiss="modal">Sačuvaj</button>
+      </div>
+    </div>
+  </div>
+</div>
